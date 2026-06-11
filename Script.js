@@ -8,7 +8,7 @@ async function gerarSenhaProtegida(message) {
 function orcamentoApp() {
     return {
         // !!! INSIRA A URL DO SEU GOOGLE APPS SCRIPT DEPLOYADO AQUI !!!
-        urlBackend: 'https://script.google.com/macros/s/AKfycbytHQCTpDlutQua0xu2_LhIZ-tXmSryqNI-07Aq8j4kK5ValGU0rVGgWS2zVbcV77B2OQ/exec',
+        urlBackend: 'https://script.google.com/macros/s/AKfycbyVTO7vNjiNzwDBcFlyaSQ5FpG3XBh1fxqCSCYeZ3NgCVAyX-qDc3xZ4s64SDSdx8PkSA/exec',
 
         async chamarBackend(action, params = {}) {
             try {
