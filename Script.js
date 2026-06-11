@@ -8,17 +8,13 @@ async function gerarSenhaProtegida(message) {
 function orcamentoApp() {
     return {
         // !!! INSIRA A URL DO SEU GOOGLE APPS SCRIPT DEPLOYADO AQUI !!!
-        urlBackend: 'https://script.google.com/macros/s/AKfycby3L0PWZP6ZA7k6Ji0eQsnI5XR2PJ0h6EEpPa5EFdXBZoa8LaFebfG8Ygqkc-vPQNbSuA/exec',
+        urlBackend: 'https://script.google.com/macros/s/AKfycbytHQCTpDlutQua0xu2_LhIZ-tXmSryqNI-07Aq8j4kK5ValGU0rVGgWS2zVbcV77B2OQ/exec',
 
         async chamarBackend(action, params = {}) {
             try {
+                // Sem setar Content-Type para evitar preflight CORS (OPTIONS) bloqueado no Apps Script
                 const response = await fetch(this.urlBackend, {
                     method: 'POST',
-                    headers: {
-                        // Isso evita que o navegador envie uma requisição 'OPTIONS' (preflight) que o Google bloqueia
-                        'Content-Type': 'text/plain;charset=utf-8',
-                    },
-                    redirect: 'follow', // O Google faz um redirecionamento (302) que deve ser seguido obrigatoriamente
                     body: JSON.stringify({ action: action, ...params })
                 });
                 const res = await response.json();
