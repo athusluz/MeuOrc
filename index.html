@@ -11,8 +11,8 @@
             padding: 0;
             width: 100vw;
             height: 100vh;
-            overflow: hidden; /* Evita barra de rolagem dupla */
-            background-color: #0f172a; /* Cor de fundo escura do seu tema para evitar flashes em branco */
+            overflow: hidden;
+            background-color: #0f172a;
         }
         .iframe-container {
             position: relative;
@@ -22,11 +22,11 @@
         }
         iframe {
             position: absolute;
-            /* Aqui acontece a mágica: movemos o iframe para cima para esconder a faixa do Google */
-            top: -46px; 
+            /* Ajuste cirúrgico: a faixa atual do Google tem 28px */
+            top: -28px; 
             left: 0;
             width: 100%;
-            height: calc(100% + 46px); /* Compensamos a altura para não faltar espaço embaixo */
+            height: calc(100% + 28px);
             border: none;
         }
     </style>
