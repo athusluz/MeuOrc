@@ -12,14 +12,22 @@ function orcamentoApp() {
 
         async chamarBackend(action, params = {}) {
             try {
-                // Sem setar Content-Type para evitar preflight CORS (OPTIONS) bloqueado no Apps Script
+                // A requisição precisa ser enviada como texto simples para não acionar o bloqueio OPTIONS (Pre-flight CORS)
                 const response = await fetch(this.urlBackend, {
                     method: 'POST',
+                    headers: {
+                        'Content-Type': 'text/plain;charset=utf-8'
+                    },
+                    redirect: 'follow', // Obrigatório para a API do Google Script funcionar e retornar dados
                     body: JSON.stringify({ action: action, ...params })
                 });
+
+                // Aqui pegamos o resultado
                 const res = await response.json();
+                
                 if (!res.success) throw new Error(res.error);
                 return res.data;
+                
             } catch (err) {
                 console.error('Erro de comunicação com a API:', err);
                 this.notificar('Erro de Conexão', 'Não foi possível salvar ou buscar dados do Google Sheets.', 'erro');
