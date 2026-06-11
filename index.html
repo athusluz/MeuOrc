@@ -9,25 +9,28 @@
         body, html {
             margin: 0;
             padding: 0;
-            width: 100vw;
+            width: 100%;
             height: 100vh;
+            height: 100dvh; 
             overflow: hidden;
-            background-color: #0f172a;
+            /* Esta cor vai ficar no fundo, atrás da Ilha Dinâmica. 
+               Deixei a cor do modo noturno do seu app. Se você usa mais o claro, mude para #f8fafc */
+            background-color: #0f172a; 
         }
         .iframe-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
+            position: absolute;
+            /* A MÁGICA: Empurra o topo na medida exata da Ilha Dinâmica / Notch */
+            top: env(safe-area-inset-top);
+            left: env(safe-area-inset-left);
+            right: env(safe-area-inset-right);
+            /* Mantemos o bottom zerado porque o seu app já gerencia o safe-area da barra inferior */
+            bottom: 0;
         }
         iframe {
-            position: absolute;
-            /* Ajuste cirúrgico: a faixa atual do Google tem 28px */
-            top: 0px; 
-            left: 0;
             width: 100%;
-            height: calc(100% + 0px);
+            height: 100%;
             border: none;
+            display: block;
         }
     </style>
 </head>
