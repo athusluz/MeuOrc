@@ -1,4 +1,4 @@
-<style>
+
     body { font-family: 'Inter', sans-serif; transition: background-color 0.3s, color 0.3s;
     }
     [x-cloak] { display: none !important; }
@@ -145,4 +145,3 @@
     .pb-safe {
         padding-bottom: env(safe-area-inset-bottom);
     }
-</style>
