@@ -3,8 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
-    <title>Sistema MeuOrc</title>
+    
+    <title>MeuOrc</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="MeuOrc">
+    
     <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/athusluz/MeuOrc/1ea1646f5b65dfc9438dc60321b08d4619c21716/MEUORC.ico">
+    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/athusluz/MeuOrc/1ea1646f5b65dfc9438dc60321b08d4619c21716/MEUORC.ico">
+
     <style>
         body, html {
             margin: 0;
@@ -13,13 +20,11 @@
             height: 100vh;
             height: 100dvh; 
             overflow: hidden;
-            /* Cor de fundo igual a do seu app no modo claro para camuflar a área do relógio */
             background-color: #f8fafc; 
         }
         .iframe-container {
             position: absolute;
-            /* Força os 54px da Ilha Dinâmica, mas usa o env() como garantia de segurança para outros aparelhos */
-            top: max(0px, env(safe-area-inset-top));
+            top: max(54px, env(safe-area-inset-top));
             left: env(safe-area-inset-left);
             right: env(safe-area-inset-right);
             bottom: 0;
