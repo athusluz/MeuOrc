@@ -13,17 +13,15 @@
             height: 100vh;
             height: 100dvh; 
             overflow: hidden;
-            /* Esta cor vai ficar no fundo, atrás da Ilha Dinâmica. 
-               Deixei a cor do modo noturno do seu app. Se você usa mais o claro, mude para #f8fafc */
-            background-color: #0f172a; 
+            /* Cor de fundo igual a do seu app no modo claro para camuflar a área do relógio */
+            background-color: #f8fafc; 
         }
         .iframe-container {
             position: absolute;
-            /* A MÁGICA: Empurra o topo na medida exata da Ilha Dinâmica / Notch */
-            top: env(safe-area-inset-top);
+            /* Força os 54px da Ilha Dinâmica, mas usa o env() como garantia de segurança para outros aparelhos */
+            top: max(54px, env(safe-area-inset-top));
             left: env(safe-area-inset-left);
             right: env(safe-area-inset-right);
-            /* Mantemos o bottom zerado porque o seu app já gerencia o safe-area da barra inferior */
             bottom: 0;
         }
         iframe {
